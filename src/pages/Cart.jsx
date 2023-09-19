@@ -1,14 +1,19 @@
-import dummyData from '../model/dummyData';
-import styled from 'styled-components';
-import CartItem from './../component/CartItem/CartItem';
+import dummyData from "../model/dummyData";
+import styled from "styled-components";
+import CartItem from "./../component/CartItem/CartItem";
+import { useRecoilValue } from "recoil";
+import { CartItemAtom, QuantitySelector, TotalPriceSelector } from "../CartItemAtom";
 
-function Cart({ cartItem, setCartItem }) {
+function Cart({ setCartItem }) {
   // 전역 상태 관리소의 값을 불러온다
+  const cartItem = useRecoilValue(CartItemAtom);
+  const totalQuantity = useRecoilValue(QuantitySelector)
+  const totalPrice = useRecoilValue(TotalPriceSelector)
 
   // 파생데이터인 셀렉터를 이용
-  const totalQuantity = 1;
+  // const totalQuantity = 1;
   // 파생데이터 셀렉터 사용
-  const totalPrice = dummyData[0].price;
+  // const totalPrice = dummyData[0].price;
 
   return (
     <>

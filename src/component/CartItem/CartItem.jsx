@@ -1,12 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import dummyImage from '../../assets/henry.jpg';
+import React from "react";
+import { useSetRecoilState } from "recoil";
+import styled from "styled-components";
+import dummyImage from "../../assets/henry.jpg";
+import { CartItemAtom } from "../../CartItemAtom";
 
 const CartItem = ({ data }) => {
   const { id, title, description, price } = data;
-
+  const setCartItem = useSetRecoilState(CartItemAtom);
+  
   // 장바구니 삭제 함수
-  const removeFromCart = () => {};
+  const removeFromCart = () => {
+    setCartItem((prev) => prev.filter((e) => e.id != id));
+  };
 
   return (
     <Wrapper>

@@ -1,16 +1,24 @@
-import React from 'react';
-import styled from 'styled-components';
-import dummyImage from '../../assets/henry.jpg';
+import React from "react";
+import { useRecoilState } from "recoil";
+import styled from "styled-components";
+import dummyImage from "../../assets/henry.jpg";
+import { CartItemAtom } from "../../CartItemAtom";
 
 const ProductCard = ({ data }) => {
   // 구조분해할당을 통해 data.id, data.title 대신 간단하게 사용
   const { id, title, description, price } = data;
 
+  const [cartItem, setCartItem] = useRecoilState(CartItemAtom);
+
   // 이미 장바구니에 아이템이 들어있는지 확인 (false 지우고 알맞은 로직 넣기)
-  const isAlreadyInCart = false;
+  const isAlreadyInCart = cartItem.filter((e) => e.id === id).length;
 
   // 장바구니에 있는지 확인 후, 없을때만 cartItem에 추가
-  const AddToCart = () => {};
+  const AddToCart = () => {
+    if (!isAlreadyInCart) {
+      setCartItem((prev) => [...prev, data]);
+    }
+  };
 
   return (
     <Wrapper>
@@ -24,7 +32,7 @@ const ProductCard = ({ data }) => {
       <Haeding>{title}</Haeding>
       <MaxLine1>{description}</MaxLine1>
       <Button onClick={AddToCart} disabled={isAlreadyInCart}>
-        {isAlreadyInCart ? `장바구니에 추가됐습니다` : '장바구니에 추가'}
+        {isAlreadyInCart ? `장바구니에 추가됐습니다` : "장바구니에 추가"}
       </Button>
     </Wrapper>
   );
