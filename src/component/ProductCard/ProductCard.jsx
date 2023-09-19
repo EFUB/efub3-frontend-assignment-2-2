@@ -2,13 +2,13 @@ import React from "react";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import dummyImage from "../../assets/henry.jpg";
-import { CartItemAtom } from "../../CartItemAtom";
+import { DiaryItemAtom } from "../../DiaryItemAtom";
 
 const ProductCard = ({ data }) => {
   // 구조분해할당을 통해 data.id, data.title 대신 간단하게 사용
   const { id, title, description, price } = data;
 
-  const [cartItem, setCartItem] = useRecoilState(CartItemAtom);
+  const [cartItem, setCartItem] = useRecoilState(DiaryItemAtom);
 
   // 이미 장바구니에 아이템이 들어있는지 확인 (false 지우고 알맞은 로직 넣기)
   const isAlreadyInCart = cartItem.filter((e) => e.id === id).length;

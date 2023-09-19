@@ -2,33 +2,34 @@ import React from "react";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import dummyImage from "../../assets/henry.jpg";
-import { CartItemAtom } from "../../CartItemAtom";
+import { DiaryItemAtom } from "../../DiaryItemAtom";
 
-const CartItem = ({ data }) => {
-  const { id, title, description, price } = data;
-  const setCartItem = useSetRecoilState(CartItemAtom);
-  
-  // 장바구니 삭제 함수
-  const removeFromCart = () => {
-    setCartItem((prev) => prev.filter((e) => e.id != id));
-  };
+const DiaryItem = ({ data }) => {
+  const { id, text, mood } = data;
+  // const setDiaryItem = useSetRecoilState(DiaryItemAtom);
+
+  // // 장바구니 삭제 함수
+  // const removeFromDiaryList = () => {
+  //   setDiaryItem((prev) => prev.filter((e) => e.id != id));
+  // };
 
   return (
     <Wrapper>
       <div>
-        <ImageWrapper src={dummyImage} alt={title}></ImageWrapper>
+        <ImageWrapper src={dummyImage} alt={text}></ImageWrapper>
         <ColumnWrapper>
-          <Title>{title}</Title>
-          <span>{description}</span>
+          <Title>{text}</Title>
+          <span>{mood}점</span>
         </ColumnWrapper>
       </div>
-      <RightWrapper>
-        <Title>{`${price.toLocaleString()}원`}</Title>
-        <Button onClick={removeFromCart}>삭제</Button>
-      </RightWrapper>
+      {/* <RightWrapper>
+        <Button onClick={removeFromDiaryList}>삭제</Button>
+      </RightWrapper> */}
     </Wrapper>
   );
 };
+
+export default DiaryItem;
 
 const Wrapper = styled.li`
   width: 100%;
@@ -70,4 +71,3 @@ const Button = styled.button`
   padding: 4px 8px;
   width: fit-content;
 `;
-export default CartItem;
