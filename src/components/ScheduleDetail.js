@@ -75,6 +75,7 @@ const Input = styled.input`
 const Text = styled.p`
   margin: 0;
   padding-bottom: 10px;
+  word-wrap: break-word;
 `;
 
 const BtnDiv = styled.div`
@@ -86,6 +87,7 @@ const Btn = styled.button`
   text-decoration: none;
   padding: 3px 10px;
   background-color: gainsboro;
+  color: black;
   border: none;
   border-radius: 7px;
   margin-top: 10px;

@@ -56,8 +56,28 @@ const CustomCalendar = () => {
 const StyledCalendar = styled(Calendar)`
   margin-top: 50px;
 
+  // 일 커스텀
+  .react-calendar__tile {
+    padding: 5px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid gainsboro;
+
+    abbr {
+      padding: 5px 6px;
+      color: black;
+    }
+  }
+
   // 주말 숫자 색 설정
-  .react-calendar__month-view__days__day--weekend {
+  .react-calendar__month-view__days__day--weekend abbr {
+    color: #bdbdbd;
+  }
+
+  // 주말 요일 색 설정
+  .react-calendar__month-view__weekdays__weekday--weekend {
     color: #bdbdbd;
   }
 
@@ -66,9 +86,10 @@ const StyledCalendar = styled(Calendar)`
     color: white;
     background: white;
     abbr {
+      font-weight: 600;
       background: black;
+      color: white;
       border-radius: 50%;
-      font-weight: 700;
     }
   }
 
@@ -134,20 +155,6 @@ const StyledCalendar = styled(Calendar)`
   // 요일 밑줄 없애기
   .react-calendar__month-view__weekdays__weekday abbr {
     text-decoration: none;
-  }
-
-  // 일 커스텀
-  .react-calendar__tile {
-    padding: 5px;
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-top: 1px solid gainsboro;
-
-    abbr {
-      padding: 7px;
-    }
   }
 
   // 해당 날짜에 일정이 등록되어 있는 경우
