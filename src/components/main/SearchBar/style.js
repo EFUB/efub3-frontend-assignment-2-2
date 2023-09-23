@@ -4,23 +4,22 @@ import { flexCenter } from "../../../style/common";
 const Wrapper = styled.div`
   width: 100%;
   height: calc(100vh - 100px);
-  ${flexCenter}
+  align-items: center;
+  padding-top: 15%;
+  display: flex;
   flex-direction: column;
   gap: 30px;
 `;
 const InputWrapper = styled.div`
   width: 40rem;
-  height: 70px;
-  border: 2px solid orange;
+  height: 50px;
+  border: 5px solid #068696;
   border-radius: 25rem;
   ${flexCenter}
   gap:20px;
+  background-color: white;
 `;
 
-const Title = styled.div`
-  font-size: 30px;
-  font-weight: 500;
-`;
 const Input = styled.input`
   width: calc(95% - 100px);
   margin-left: 20px;
@@ -31,7 +30,6 @@ const Input = styled.input`
 const S = {
   Wrapper,
   InputWrapper,
-  Title,
   Input,
 };
 

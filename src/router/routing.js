@@ -1,19 +1,19 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/common/layout/layout";
-import MainPage from "../page/mainPage";
-import SearchPage from "../page/searchPage";
+import MainPage from "../page/main/mainPage";
+import DetailPage from "../page/detail/detailPage";
 
 const router = createBrowserRouter([
   {
     element: <Layout />,
     children: [
       {
-        path: "/main",
+        path: "/",
         element: <MainPage />,
       },
       {
-        path: "/search",
-        element: <SearchPage />,
+        path: "/detail",
+        element: <DetailPage />,
       },
     ],
   },
