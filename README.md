@@ -19,5 +19,5 @@
 ### 결과물 사진
 
 - 아이폰 캘린더 참고
-  ![image](https://github.com/EFUB/efub3-frontend-assignment-2-2/assets/100225783/3a0b62f3-14ad-4abd-a9ef-8c09a6eb9c6b) | ![image](https://github.com/EFUB/efub3-frontend-assignment-2-2/assets/100225783/361b6edc-732c-46ef-b799-9ad05d5cb7b0)
+  ![image](https://github.com/EFUB/efub3-frontend-assignment-2-2/assets/100225783/cbdbc496-05c7-4ffc-84a6-c880b74d2fe6) | ![image](https://github.com/EFUB/efub3-frontend-assignment-2-2/assets/100225783/58a0d68c-3e26-4280-b41b-b737d1904024)
   ---|---|
