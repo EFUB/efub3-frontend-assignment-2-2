@@ -1,30 +1,18 @@
 import React from "react";
-import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import dummyImage from "../../assets/henry.jpg";
-import { DiaryItemAtom } from "../../DiaryItemAtom";
 
 const DiaryItem = ({ data }) => {
-  const { id, text, mood } = data;
-  // const setDiaryItem = useSetRecoilState(DiaryItemAtom);
-
-  // // 장바구니 삭제 함수
-  // const removeFromDiaryList = () => {
-  //   setDiaryItem((prev) => prev.filter((e) => e.id != id));
-  // };
+  const { id, text, mood, weather } = data;
 
   return (
     <Wrapper>
       <div>
-        <ImageWrapper src={dummyImage} alt={text}></ImageWrapper>
         <ColumnWrapper>
           <Title>{text}</Title>
           <span>{mood}점</span>
+          <span>날씨 : {weather}</span>
         </ColumnWrapper>
       </div>
-      {/* <RightWrapper>
-        <Button onClick={removeFromDiaryList}>삭제</Button>
-      </RightWrapper> */}
     </Wrapper>
   );
 };
@@ -38,6 +26,7 @@ const Wrapper = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* background-color: yellow; */
 `;
 const ImageWrapper = styled.img`
   height: 60px;

@@ -18,6 +18,6 @@ export const MoodSelector = selector({
   get: ({ get }) => {
     const diaryItems = get(DiaryItemAtom);
     const moodSum = diaryItems.reduce((acc, cur) => acc + cur.mood, 0);
-    return moodSum; // 전체 기분의 합을 반환
+    return moodSum;
   },
 });

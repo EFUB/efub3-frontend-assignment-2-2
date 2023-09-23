@@ -1,17 +1,16 @@
-import dummyData from "../model/dummyData";
 import styled from "styled-components";
 import DiaryItem from "../component/DiaryItem/DiaryItem";
 import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { DiaryItemAtom, CountSelector, MoodSelector } from "../DiaryItemAtom";
 
 function DiaryList() {
-  // Recoil 상태를 가져올 때 useRecoilState를 사용
   const diaryItems = useRecoilValue(DiaryItemAtom);
   const totalMood = useRecoilValue(MoodSelector);
+  const averageMood =
+    totalMood > 0 ? Math.floor(totalMood / diaryItems.length) : 0;
   const diaryCount = useRecoilValue(CountSelector);
   const setDiaryItems = useSetRecoilState(DiaryItemAtom);
 
-  // 다이어리 아이템 삭제 함수
   const deleteDiaryItem = (id) => {
     const updatedDiaryItems = diaryItems.filter((item) => item.id !== id);
     setDiaryItems(updatedDiaryItems);
@@ -25,12 +24,14 @@ function DiaryList() {
         {diaryItems.length ? (
           diaryItems.map((diary) => (
             <div key={diary.id}>
-              <DiaryItem data={diary} />
-              <button onClick={() => deleteDiaryItem(diary.id)}>삭제</button>
+              <Section>
+                <DiaryItem data={diary} />
+                <Btn onClick={() => deleteDiaryItem(diary.id)}>삭제</Btn>
+              </Section>
             </div>
           ))
         ) : (
-          <NoItems>일기가 없습니다</NoItems>
+          <NoItems>일기를 작성해 주세요!</NoItems>
         )}
       </ItemWrapper>
 
@@ -39,7 +40,7 @@ function DiaryList() {
           <span>이번 달 일기 갯수</span>
           <Heading>{diaryCount}개</Heading>
           <span>이번 달 내 평균 기분 점수</span>
-          <Heading>{totalMood}점</Heading>
+          <Heading>{averageMood}점</Heading>
         </ColumnWrapper>
       </TotalPriceWrapper>
     </>
@@ -57,6 +58,7 @@ const ColumnWrapper = styled.div`
 const Heading = styled.span`
   font-size: 20px;
   font-weight: var(--bold);
+  margin-bottom: 1rem;
 `;
 const ItemWrapper = styled.ul`
   display: flex;
@@ -65,17 +67,19 @@ const ItemWrapper = styled.ul`
   min-height: calc(100vh - 300px);
   gap: 8px;
   flex-direction: column;
+  padding: 10px;
 `;
+
 const TotalPriceWrapper = styled.div`
   padding: 16px;
   height: 150px;
   width: 100%;
   max-width: 1024px;
-  border: 1px solid var(--line-gray);
   & span {
-    text-align: right;
+    text-align: center;
   }
 `;
+
 const NoItems = styled.div`
   padding: 8px;
   width: fit-content;
@@ -83,4 +87,16 @@ const NoItems = styled.div`
   border-radius: 4px;
   text-align: center;
   border: 1px solid var(--line-gray);
+`;
+const Btn = styled.button`
+  width: 5rem;
+  height: 1.8rem;
+  margin-right: 1rem;
+`;
+const Section = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
 `;

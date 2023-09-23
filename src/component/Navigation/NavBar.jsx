@@ -1,20 +1,24 @@
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
-import { Logo } from './../Logo';
-import logoElem from '../../assets/henry.jpg';
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+
 function Navbar() {
   return (
     <Header>
       <Wrapper>
-        <Link to={'/'} aria-label="홈으로 이동">
-          <Logo src={logoElem} alt="홈 아이콘" />
-        </Link>
         <Nav>
-          <Link to={'/'} aria-label="홈으로 이동">
+          <Link
+            to={"/"}
+            aria-label="홈으로 이동"
+            style={{ background: "none" }}
+          >
             홈
           </Link>
-          <Link to={'/cart'} aria-label="장바구니로 이동">
-            장바구니
+          <Link
+            to={"/diary"}
+            style={{ background: "none" }}
+            aria-label="장바구니로 이동"
+          >
+            일기 보관함
           </Link>
         </Nav>
       </Wrapper>
@@ -25,11 +29,11 @@ function Navbar() {
 const Header = styled.header`
   width: 100%;
   height: 72px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid #ccc;
   position: fixed;
   top: 0;
   z-index: 9999;
-  background-color: #fff;
+  background-color: var(--line-gray);
 `;
 const Wrapper = styled.div`
   width: 100%;

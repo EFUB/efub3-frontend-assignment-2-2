@@ -1,17 +1,18 @@
-import React from 'react';
-import { Outlet } from 'react-router';
-import styled from 'styled-components';
+import React from "react";
+import { Outlet } from "react-router";
+import styled from "styled-components";
 
 const Layout = styled.main`
   width: 100%;
   max-width: 1024px;
   margin: 0 auto;
   height: 100%;
+  /* padding-top: 10rem; */
   min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
   padding: 16px;
-  background-color: #fff;
+  background-color: var(--line-gray);
 `;
 const BackDrop = styled.div`
   width: 100%;
