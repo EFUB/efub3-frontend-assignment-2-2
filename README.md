@@ -3,8 +3,8 @@
 💛 [이펍 프론트엔드 2학기] 2주차 과제 Recoil 연습 제출
 
 ### 결과물
+![readme](https://github.com/529539/efub3-frontend-assignment-2-2/assets/102040717/d3ffc414-3c03-4bbd-ba4a-8cca8b30063e)
 
-![readme](https://github.com/529539/efub3-frontend-assignment-2-2/assets/102040717/21cbce3e-9b6a-4ae7-b088-4f8c578ac3e3)
 
 ### 상세 설명
 
